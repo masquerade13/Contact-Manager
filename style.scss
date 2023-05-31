@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap'); // logo text 
+
+
+@mixin muktafont($weight) {
+    font-family: 'Mukta', sans-serif;
+    font-weight: $weight;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(251, 240, 226);
+    font-family: 'Mukta', sans-serif;
+}
+
+
+.whole-site {
+    width: 100%;
+}
+
+
+
+nav {
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-start;
+    background-color: white;
+
+    .logo {
+        font-size: 30px;
+        color: #4b4b4b;
+        margin-left: 30px;
+    }
+}
+
+::placeholder {
+    color: rgb(75, 75, 75);
+}
+
+.pop-up-window {
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: auto;
+    background-color: white;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    border-radius: 20px;
+    z-index: 1000;
+
+    .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: none;
+        margin: 0 auto;
+
+        .cls-btn {
+            border: none;
+            background: transparent;
+
+        }
+
+
+    }
+
+    .close-btn:hover {
+        // background-color: rgba(0, 0, 0, 0.126);
+        border-radius: 50%;
+        padding: 1px;
+    }
+
+    .form-class {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 30px 0px;
+
+
+        .name-c {
+            padding-left: 10px;
+            margin-bottom: 5px;
+            margin-top: 20px;
+        }
+
+        .Add-contact-btn {
+            margin-top: 20px;
+        }
+
+        .input-holder {
+            background-color: rgb(243, 247, 255);
+            border: none;
+            padding: 10px 10px;
+            border-radius: 25px;
+        }
+
+        .Add-contact-btn {
+            border: none;
+            background-color: rgb(36, 113, 255);
+            text-align: center;
+            border-radius: 25px;
+            padding: 10px 26px;
+            color: white;
+        }
+
+        .two-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+    }
+
+
+}
+
+
+.whole-middle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+
+
+    .head-of-middle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .search-bar {
+
+            .input-holder {
+                background-color: rgb(255, 255, 255);
+                border: 1px solid rgb(105, 105, 105);
+                padding: 10px 10px;
+                border-radius: 25px;
+            }
+
+            .search-btn {
+                border: none;
+                background-color: rgb(255, 255, 255);
+                border-radius: 25px;
+                padding: 10px 10px;
+                color: black;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                border: 1px solid rgb(105, 105, 105);
+
+            }
+
+        }
+
+
+
+        .new-contact-div {
+            margin-top: 20px;
+
+            .new-contact-btn {
+                border: none;
+                background-color: rgb(255, 255, 255);
+                border-radius: 25px;
+                padding: 10px 10px;
+                color: black;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                border: 1px solid rgb(105, 105, 105);
+            }
+        }
+    }
+
+    .all-card-parts {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        .card {
+            width: 350px;
+            display: flex;
+            height: 400px;
+            justify-content: center;
+            align-items: flex-start;
+            border: 2px solid black;
+            border-radius: 20px;
+            background-color: white;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            border: 1px solid rgb(105, 105, 105);
+            padding: 1%;
+
+            ul {
+                .itul {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                   
+
+                }
+
+                li{
+                    text-align: left;
+                }
+            }
+
+            .human {
+                margin-top: 50px;
+                text-align: center;
+                width: 100%;
+                height: auto;
+            }
+
+            .three-dot {
+                width: 20px;
+                height: auto;
+                position: absolute;
+                z-index: 0;
+            }
+
+            
+        }
+    }
+
+}
+
+
+@media only screen and (max-width: 770px) {
+    .pop-up-window{
+        width: 60%;
+    }
+}
