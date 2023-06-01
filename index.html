@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Contact Manager</title>
 </head>
 
@@ -16,7 +17,7 @@
 
 
         <div class="navbar">
-            <div class="logo">Contact Manager</div>
+            <i class="fa-regular fa-address-book" style="color: #ffffff;"></i><div class="logo">Contact Manager</div>
         </div>
 
         <div class="pop-up-window" id="pop_up_window">
@@ -35,7 +36,7 @@
                 <input id="addaras" class="input-holder" type="text" placeholder="Enter Your Address.">
                 <div class="two-btn">
                 <button type="button" class="Add-contact-btn" onclick="submitted()">Save</button>
-                <button type="button" class="Add-contact-btn" onclick="poplhide()">Cancel</button>
+                <button type="button" class="Add-contact-btn cancel-btn" onclick="poplhide()">Cancel</button>
             
             </div>
             </form>
@@ -49,9 +50,9 @@
                 <div class="head-of-middle">
                     <div class="search-bar">
                         <input class=" input-holder" type="text" placeholder="Search in Contacts.">
-                        <button type="button" class="search-btn">SEARCH</button>
+                        <button type="button" class="search-btn">Search</button>
                     </div>
-                    <div class="new-contact-div"><button id="new-contact-btn" class="new-contact-btn" type="button" onclick="popdisplay()">Add New Contact</button></div>
+                    <div class="new-contact-div"><button id="new-contact-btn" class="new-contact-btn" type="button" onclick="popdisplay()">Add Contact</button></div>
                 </div>
 
                 <div class="all-card-parts" id="all-card-parts">

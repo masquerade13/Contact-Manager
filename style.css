@@ -21,6 +21,7 @@ input[type=number] {
 }
 
 body {
+  background: rgb(4, 19, 26);
   font-family: "Mukta", sans-serif;
 }
 
@@ -35,12 +36,14 @@ nav {
 .navbar {
   display: flex;
   justify-content: flex-start;
-  background-color: white;
+  background-color: rgb(4, 19, 26);
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
 }
 .navbar .logo {
   font-size: 30px;
-  color: #4b4b4b;
-  margin-left: 30px;
+  color: white;
 }
 
 ::-moz-placeholder {
@@ -94,10 +97,6 @@ nav {
   margin-bottom: 5px;
   margin-top: 20px;
 }
-.pop-up-window .form-class .Add-contact-btn {
-  cursor: pointer;
-  margin-top: 20px;
-}
 .pop-up-window .form-class .input-holder {
   background-color: rgb(243, 247, 255);
   border: none;
@@ -105,12 +104,17 @@ nav {
   border-radius: 25px;
 }
 .pop-up-window .form-class .Add-contact-btn {
+  cursor: pointer;
+  margin-top: 20px;
   border: none;
-  background-color: rgb(36, 113, 255);
+  background-color: rgb(76, 176, 80);
   text-align: center;
   border-radius: 25px;
   padding: 10px 26px;
   color: white;
+}
+.pop-up-window .form-class .cancel-btn {
+  background: rgb(244, 66, 54);
 }
 .pop-up-window .form-class .two-btn {
   display: flex;
@@ -120,12 +124,10 @@ nav {
 }
 
 .whole-middle-container {
-  background: #ff5f5f;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 40px;
-  height: 93.8vh;
 }
 .whole-middle-container .head-of-middle {
   display: flex;
@@ -136,18 +138,23 @@ nav {
 .whole-middle-container .head-of-middle .search-bar .input-holder {
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(105, 105, 105);
-  padding: 10px 10px;
+  padding: 10px 20px;
   border-radius: 25px;
 }
 .whole-middle-container .head-of-middle .search-bar .search-btn {
   cursor: pointer;
   border: none;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(72, 215, 218);
   border-radius: 25px;
-  padding: 10px 10px;
-  color: black;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 10px 20px;
+  color: rgb(4, 19, 26);
   border: 1px solid rgb(105, 105, 105);
+  font-weight: 550;
+  letter-spacing: 0.04rem;
+}
+.whole-middle-container .head-of-middle .search-bar .search-btn:hover {
+  box-shadow: rgba(72, 216, 218, 0.29) 0px 7px 29px 0px;
+  transition: 0.3s;
 }
 .whole-middle-container .head-of-middle .new-contact-div {
   margin-top: 20px;
@@ -155,12 +162,17 @@ nav {
 .whole-middle-container .head-of-middle .new-contact-div .new-contact-btn {
   cursor: pointer;
   border: none;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(211, 254, 158);
   border-radius: 25px;
-  padding: 10px 10px;
-  color: black;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 10px 20px;
+  color: rgb(4, 19, 26);
   border: 1px solid rgb(105, 105, 105);
+  font-weight: 550;
+  letter-spacing: 0.04rem;
+}
+.whole-middle-container .head-of-middle .new-contact-div .new-contact-btn:hover {
+  transition: 0.3s;
+  box-shadow: rgba(255, 255, 255, 0.26) 0px 7px 29px 0px;
 }
 .whole-middle-container .all-card-parts {
   margin-top: 50px;
@@ -171,11 +183,11 @@ nav {
   flex-wrap: wrap;
 }
 .whole-middle-container .all-card-parts .card {
-  width: 350px;
+  width: 250px;
   display: flex;
   height: 400px;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   border: 2px solid black;
   border-radius: 20px;
   background-color: white;
@@ -190,32 +202,34 @@ nav {
   margin-top: 30px;
   border: 1px solid rgba(76, 32, 32, 0.3411764706);
   border-radius: 10px;
-  padding: 2px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  background-color: rgba(255, 95, 95, 0.8901960784);
+  padding: 5px;
+  background-color: rgb(4, 19, 26);
 }
 .whole-middle-container .all-card-parts .card .edidel-div .div-del {
   cursor: pointer;
   padding: 5px;
   border-radius: 10px;
   background-color: white;
-  color: black;
-  background-color: rgba(255, 95, 95, 0.8901960784);
+  color: white;
+  background-color: rgb(255, 43, 28);
 }
 .whole-middle-container .all-card-parts .card .edidel-div .div-edit {
   cursor: pointer;
   padding: 5px;
   border-radius: 10px;
   margin-top: 5px;
-  color: black;
-  background-color: rgba(255, 95, 95, 0.8901960784);
+  color: white;
+  background-color: rgb(64, 141, 185);
 }
-.whole-middle-container .all-card-parts .card .edidel-div .div-del:hover, .whole-middle-container .all-card-parts .card .edidel-div .div-edit:hover {
+.whole-middle-container .all-card-parts .card .edidel-div .div-edit:hover {
   padding: 4px 5px 5px 5px;
   border-radius: 10px;
-  background-color: white;
-  color: black;
-  background-color: rgba(255, 74, 74, 0.8901960784);
+  background-color: rgb(13, 116, 175);
+}
+.whole-middle-container .all-card-parts .card .edidel-div .div-del:hover {
+  padding: 4px 5px 5px 5px;
+  border-radius: 10px;
+  background-color: rgb(254, 21, 5);
 }
 .whole-middle-container .all-card-parts .card ul .itul {
   display: flex;
@@ -223,13 +237,15 @@ nav {
   align-items: center;
   flex-direction: column;
 }
+.whole-middle-container .all-card-parts .card ul .center-human {
+  text-align: center;
+}
 .whole-middle-container .all-card-parts .card ul li {
   text-align: left;
 }
 .whole-middle-container .all-card-parts .card .human {
   margin-top: 50px;
-  text-align: center;
-  width: 100%;
+  width: 132px;
   height: auto;
 }
 .whole-middle-container .all-card-parts .card .three-dot {
@@ -238,6 +254,10 @@ nav {
   height: auto;
   position: absolute;
   z-index: 0;
+}
+
+i {
+  font-size: 30px;
 }
 
 @media only screen and (max-width: 770px) {

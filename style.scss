@@ -32,7 +32,7 @@ input[type=number] {
 }
 
 body {
-    
+    background: rgb(4, 19, 26);
     font-family: 'Mukta', sans-serif;
 }
 
@@ -50,12 +50,14 @@ nav {
 .navbar {
     display: flex;
     justify-content: flex-start;
-    background-color: white;
+    background-color: rgb(4, 19, 26);
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
 
     .logo {
         font-size: 30px;
-        color: #4b4b4b;
-        margin-left: 30px;
+        color: white;
     }
 }
 
@@ -115,11 +117,6 @@ nav {
             margin-top: 20px;
         }
 
-        .Add-contact-btn {
-            cursor: pointer;
-            margin-top: 20px;
-        }
-
         .input-holder {
             background-color: rgb(243, 247, 255);
             border: none;
@@ -128,12 +125,18 @@ nav {
         }
 
         .Add-contact-btn {
+            cursor: pointer;
+            margin-top: 20px;
             border: none;
-            background-color: rgb(36, 113, 255);
+            background-color: rgb(76, 176, 80);
             text-align: center;
             border-radius: 25px;
             padding: 10px 26px;
             color: white;
+        }
+
+        .cancel-btn{
+            background: rgb(244, 66, 54);
         }
 
         .two-btn {
@@ -149,12 +152,10 @@ nav {
 
 
 .whole-middle-container {
-    background: #ff5f5f;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 40px;
-    height: 93.8vh;
 
 
     .head-of-middle {
@@ -168,20 +169,26 @@ nav {
             .input-holder {
                 background-color: rgb(255, 255, 255);
                 border: 1px solid rgb(105, 105, 105);
-                padding: 10px 10px;
+                padding: 10px 20px;
                 border-radius: 25px;
             }
 
             .search-btn {
                 cursor: pointer;
                 border: none;
-                background-color: rgb(255, 255, 255);
+                background-color: rgb(72, 215, 218);
                 border-radius: 25px;
-                padding: 10px 10px;
-                color: black;
-                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                padding: 10px 20px;
+                color: rgb(4, 19, 26);
                 border: 1px solid rgb(105, 105, 105);
+                font-weight: 550;
+                letter-spacing: 0.04rem;
 
+            }
+
+            .search-btn:hover {
+                box-shadow: rgba(72, 216, 218, 0.29) 0px 7px 29px 0px;
+                transition: 0.3s;
             }
 
         }
@@ -192,12 +199,18 @@ nav {
             .new-contact-btn {
                 cursor: pointer;
                 border: none;
-                background-color: rgb(255, 255, 255);
+                background-color: rgb(211, 254, 158);
                 border-radius: 25px;
-                padding: 10px 10px;
-                color: black;
-                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                padding: 10px 20px;
+                color: rgb(4, 19, 26);
+                // box-shadow: rgba(255, 255, 255, 0.13) 0px 7px 29px 0px;
                 border: 1px solid rgb(105, 105, 105);
+                font-weight: 550;
+                letter-spacing: 0.04rem;
+            }
+            .new-contact-btn:hover {
+                transition: 0.3s;
+                box-shadow: rgba(255, 255, 255, 0.26) 0px 7px 29px 0px;
             }
         }
     }
@@ -211,11 +224,11 @@ nav {
         flex-wrap: wrap;
 
         .card {
-            width: 350px;
+            width: 250px;
             display: flex;
             height: 400px;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
             border: 2px solid black;
             border-radius: 20px;
             background-color: white;
@@ -231,9 +244,9 @@ nav {
                 // background-color: white;
                 border: 1px solid #4c202057;
                 border-radius: 10px;
-                padding: 2px;
-                box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-                background-color: #ff5f5fe3;
+                padding: 5px;
+                
+                background-color: rgb(4, 19, 26);
 
                 
                 .div-del{
@@ -241,8 +254,8 @@ nav {
                     padding: 5px;
                     border-radius: 10px;
                     background-color: white;
-                    color: black;
-                    background-color: #ff5f5fe3;
+                    color: white;
+                    background-color: rgb(255, 43, 28);
                     
                 }
                 .div-edit{
@@ -250,15 +263,18 @@ nav {
                     padding: 5px;
                     border-radius: 10px;
                     margin-top: 5px;
-                    color: black;
-                    background-color: #ff5f5fe3;
+                    color: white;
+                    background-color: rgb(64, 141, 185);
                 }
-                .div-del:hover, .div-edit:hover{
+                .div-edit:hover{
                     padding: 4px 5px 5px 5px;
                     border-radius: 10px;
-                    background-color: white;
-                    color: black;
-                    background-color: #ff4a4ae3;
+                    background-color: rgb(13, 116, 175);
+                }
+                .div-del:hover{
+                    padding: 4px 5px 5px 5px;
+                    border-radius: 10px;
+                    background-color: rgb(254, 21, 5);
                 }
                 
             }
@@ -272,16 +288,20 @@ nav {
                    
 
                 }
+                .center-human{
+                    text-align: center;       
+                }
 
                 li{
                     text-align: left;
+
+                    
                 }
             }
 
             .human {
                 margin-top: 50px;
-                text-align: center;
-                width: 100%;
+                width: 132px;
                 height: auto;
             }
 
@@ -299,6 +319,10 @@ nav {
 
 }
 
+
+i{
+    font-size: 30px;
+}
 
 @media only screen and (max-width: 770px) {
     .pop-up-window{
