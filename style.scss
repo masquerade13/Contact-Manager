@@ -9,6 +9,20 @@
 }
 
 
+// hide increase and decrese arrow from input type number 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -18,7 +32,7 @@
 }
 
 body {
-    background-color: rgb(251, 240, 226);
+    
     font-family: 'Mukta', sans-serif;
 }
 
@@ -73,6 +87,7 @@ nav {
         margin: 0 auto;
 
         .cls-btn {
+            cursor: pointer;
             border: none;
             background: transparent;
 
@@ -101,6 +116,7 @@ nav {
         }
 
         .Add-contact-btn {
+            cursor: pointer;
             margin-top: 20px;
         }
 
@@ -133,10 +149,12 @@ nav {
 
 
 .whole-middle-container {
+    background: #ff5f5f;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 40px;
+    height: 93.8vh;
 
 
     .head-of-middle {
@@ -155,6 +173,7 @@ nav {
             }
 
             .search-btn {
+                cursor: pointer;
                 border: none;
                 background-color: rgb(255, 255, 255);
                 border-radius: 25px;
@@ -167,12 +186,11 @@ nav {
 
         }
 
-
-
         .new-contact-div {
             margin-top: 20px;
 
             .new-contact-btn {
+                cursor: pointer;
                 border: none;
                 background-color: rgb(255, 255, 255);
                 border-radius: 25px;
@@ -205,6 +223,46 @@ nav {
             border: 1px solid rgb(105, 105, 105);
             padding: 1%;
 
+            .edidel-div{
+                display: none;
+                position: absolute;
+                margin-left: -2px;
+                margin-top: 30px;
+                // background-color: white;
+                border: 1px solid #4c202057;
+                border-radius: 10px;
+                padding: 2px;
+                box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+                background-color: #ff5f5fe3;
+
+                
+                .div-del{
+                    cursor: pointer;
+                    padding: 5px;
+                    border-radius: 10px;
+                    background-color: white;
+                    color: black;
+                    background-color: #ff5f5fe3;
+                    
+                }
+                .div-edit{
+                    cursor: pointer;
+                    padding: 5px;
+                    border-radius: 10px;
+                    margin-top: 5px;
+                    color: black;
+                    background-color: #ff5f5fe3;
+                }
+                .div-del:hover, .div-edit:hover{
+                    padding: 4px 5px 5px 5px;
+                    border-radius: 10px;
+                    background-color: white;
+                    color: black;
+                    background-color: #ff4a4ae3;
+                }
+                
+            }
+
             ul {
                 .itul {
                     display: flex;
@@ -228,6 +286,7 @@ nav {
             }
 
             .three-dot {
+                cursor: pointer;
                 width: 20px;
                 height: auto;
                 position: absolute;
