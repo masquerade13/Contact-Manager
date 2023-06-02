@@ -39,7 +39,7 @@ function submitted() {
         ContactList = JSON.parse(localStorage.getItem("ContactList"));
     }
 
-    let html = `<div class="card"><ul class="itul">`;
+    let html = `<div class="card"><ul class="itul" id="myUL">`;
 
     html += '<li><img onclick="editdel(' + ContactList.length + ')" class="three-dot" src="./IMAGES/three-dot.svg"></li>';
 
@@ -69,6 +69,7 @@ function submitted() {
 
     poplhide();
 
+    showdata();
 
 }
 
@@ -85,12 +86,12 @@ function showdata() {
     for (let index = 0; index < ContactList.length; index++) {
         
         const element = ContactList[index];
-        console.log(element.firstname + " Inputted");
-        let html = `<div class="card"><ul class="itul">`;
+        // console.log(element.firstname + " Inputted");
+        let html = `<div class="card"><ul class="itul" id="myUL">`;
 
         html += '<li><img onclick="editdel(' + index + ')" class="three-dot" src="./IMAGES/three-dot.svg"></li>';
 
-        html += '<li><div class="edidel-div" id="edidel-div-' + index + '"> <div class="div-del" onclick="onndelete(' + index + ')">DELETE</div> <div class="div-edit"  onclick="onnedit()">EDIT</div></div></li>';
+        html += '<li><div class="edidel-div" id="edidel-div-' + index + '"> <div class="div-del" onclick="onndelete(' + index + ')">DELETE</div> <div class="div-edit"  onclick="onnedit(' + index + ')">EDIT</div></div></li>';
 
         html += '<li class="center-human"><img class="human" src="./IMAGES/human.png"></li>';
         html += `<li>FirstName: ${element.firstname}</li>`;
@@ -129,18 +130,22 @@ function onnedit(index) {
     }
 
     const element = ContactList[index];
-    console.log(element + " Displaying");
+    // console.log(element.firstname + " Displaying");
+    // console.log(element.lastname + " Displaying");
     
+
+    document.getElementById('fnamee').value = element.firstname;
+    document.getElementById('lnamee').value = element.lastname;
+    document.getElementById('pnum').value = element.Phonenumber;
+    document.getElementById('addaras').value = element.Address;
     popdisplay();
-
-
-
-
-    // ContactList.splice(index, 1);
-
+    
+    ContactList.splice(index, 1);
     localStorage.setItem("ContactList", JSON.stringify(ContactList));
     showdata();
 }
+
+
 
 
 
@@ -152,6 +157,35 @@ function onnedit(index) {
 //         }
 //     }
 // }
+
+
+function myFunction() {
+    // Declare variables
+
+    let ContactList;
+    if (localStorage.getItem("ContactList") == null) {
+        ContactList = [];
+    } else {
+        ContactList = JSON.parse(localStorage.getItem("ContactList"));
+    }
+
+    var input, filter, ul, li, i, txtValue;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName('li');
+  
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName("a")[0];
+      txtValue = a.textContent || a.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
 
 
 showdata();
