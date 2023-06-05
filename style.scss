@@ -13,15 +13,28 @@
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* Firefox */
 input[type=number] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
 
+
+// choose file styling
+input::file-selector-button {
+    cursor: pointer;
+    font-weight: 600;
+    color: white;
+    padding: 0.5em 0.7em;
+    margin-right: 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(64, 141, 185);
+    opacity: 0.9;
+}
 
 * {
     margin: 0;
@@ -136,7 +149,22 @@ nav {
             color: white;
         }
 
-        .cancel-btn{
+        .edit-contact-btn {
+            cursor: pointer;
+            margin-top: 20px;
+            border: none;
+            background-color: rgb(76, 176, 80);
+            text-align: center;
+            border-radius: 25px;
+            padding: 10px 26px;
+            color: white;
+        }
+
+        .edit-contact-btn {
+            display: none;
+        }
+
+        .cancel-btn {
             background: rgb(244, 66, 54);
         }
 
@@ -209,6 +237,7 @@ nav {
                 font-weight: 550;
                 letter-spacing: 0.04rem;
             }
+
             .new-contact-btn:hover {
                 transition: 0.3s;
                 box-shadow: rgba(255, 255, 255, 0.26) 0px 7px 29px 0px;
@@ -230,36 +259,33 @@ nav {
             height: 400px;
             justify-content: center;
             align-items: center;
-            border: 2px solid black;
-            border-radius: 20px;
-            background-color: white;
-            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-            border: 1px solid rgb(105, 105, 105);
+            border-radius: 15px;
+            background-color: rgb(234, 255, 208);
+            
             padding: 1%;
 
-            .edidel-div{
+            .edidel-div {
                 display: none;
                 position: absolute;
-                margin-left: -2px;
+                margin-left: 9px;
                 margin-top: 30px;
-                // background-color: white;
                 border: 1px solid #4c202057;
                 border-radius: 10px;
                 padding: 5px;
-                
                 background-color: rgb(4, 19, 26);
 
-                
-                .div-del{
+
+                .div-del {
                     cursor: pointer;
                     padding: 5px;
                     border-radius: 10px;
                     background-color: white;
                     color: white;
                     background-color: rgb(255, 43, 28);
-                    
+
                 }
-                .div-edit{
+
+                .div-edit {
                     cursor: pointer;
                     padding: 5px;
                     border-radius: 10px;
@@ -267,43 +293,55 @@ nav {
                     color: white;
                     background-color: rgb(64, 141, 185);
                 }
-                .div-edit:hover{
+
+                .div-edit:hover {
                     padding: 4px 5px 5px 5px;
                     border-radius: 10px;
                     background-color: rgb(13, 116, 175);
                 }
-                .div-del:hover{
+
+                .div-del:hover {
                     padding: 4px 5px 5px 5px;
                     border-radius: 10px;
                     background-color: rgb(254, 21, 5);
                 }
-                
+
             }
 
+            .for-mt{
+                margin-top: 20px;
+            }
+
+            .itul {
+                width: 100%;
+                height: auto;
+            }
+
+            .for-pd {
+                padding-left: 10px;
+            }
+
+
             ul {
-                .itul {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    flex-direction: column;
-                   
-
-                }
-                .center-human{
-                    text-align: center;       
-                }
-
-                li{
-                    text-align: left;
-
+                .center-human {
+                    text-align: center;
+                    border-radius: 7px;
                     
+                }
+
+                li {
+                    text-align: left;
+                    color: black;
+                    white-space: nowrap;
                 }
             }
 
             .human {
                 margin-top: 50px;
-                width: 132px;
-                height: auto;
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                // box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
             }
 
             .three-dot {
@@ -312,21 +350,30 @@ nav {
                 height: auto;
                 position: absolute;
                 z-index: 0;
+                margin-top: 10px;
+                margin-left: 2px;
             }
 
-            
+
         }
     }
 
 }
 
 
-i{
+
+i {
     font-size: 30px;
 }
 
-@media only screen and (max-width: 770px) {
-    .pop-up-window{
+@media only screen and (max-width: 1000px) {
+    .pop-up-window {
         width: 60%;
+    }
+}
+
+@media only screen and (max-width: 612px) {
+    .pop-up-window {
+        width: 90%;
     }
 }

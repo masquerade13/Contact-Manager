@@ -12,6 +12,18 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+input::file-selector-button {
+  cursor: pointer;
+  font-weight: 600;
+  color: white;
+  padding: 0.5em 0.7em;
+  margin-right: 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: rgb(64, 141, 185);
+  opacity: 0.9;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -114,6 +126,19 @@ nav {
   padding: 10px 26px;
   color: white;
 }
+.pop-up-window .form-class .edit-contact-btn {
+  cursor: pointer;
+  margin-top: 20px;
+  border: none;
+  background-color: rgb(76, 176, 80);
+  text-align: center;
+  border-radius: 25px;
+  padding: 10px 26px;
+  color: white;
+}
+.pop-up-window .form-class .edit-contact-btn {
+  display: none;
+}
 .pop-up-window .form-class .cancel-btn {
   background: rgb(244, 66, 54);
 }
@@ -189,17 +214,14 @@ nav {
   height: 400px;
   justify-content: center;
   align-items: center;
-  border: 2px solid black;
-  border-radius: 20px;
-  background-color: white;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  border: 1px solid rgb(105, 105, 105);
+  border-radius: 15px;
+  background-color: rgb(234, 255, 208);
   padding: 1%;
 }
 .whole-middle-container .all-card-parts .card .edidel-div {
   display: none;
   position: absolute;
-  margin-left: -2px;
+  margin-left: 9px;
   margin-top: 30px;
   border: 1px solid rgba(76, 32, 32, 0.3411764706);
   border-radius: 10px;
@@ -232,22 +254,30 @@ nav {
   border-radius: 10px;
   background-color: rgb(254, 21, 5);
 }
-.whole-middle-container .all-card-parts .card ul .itul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.whole-middle-container .all-card-parts .card .for-mt {
+  margin-top: 20px;
+}
+.whole-middle-container .all-card-parts .card .itul {
+  width: 100%;
+  height: auto;
+}
+.whole-middle-container .all-card-parts .card .for-pd {
+  padding-left: 10px;
 }
 .whole-middle-container .all-card-parts .card ul .center-human {
   text-align: center;
+  border-radius: 7px;
 }
 .whole-middle-container .all-card-parts .card ul li {
   text-align: left;
+  color: black;
+  white-space: nowrap;
 }
 .whole-middle-container .all-card-parts .card .human {
   margin-top: 50px;
-  width: 132px;
-  height: auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
 }
 .whole-middle-container .all-card-parts .card .three-dot {
   cursor: pointer;
@@ -255,14 +285,21 @@ nav {
   height: auto;
   position: absolute;
   z-index: 0;
+  margin-top: 10px;
+  margin-left: 2px;
 }
 
 i {
   font-size: 30px;
 }
 
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 1000px) {
   .pop-up-window {
     width: 60%;
+  }
+}
+@media only screen and (max-width: 612px) {
+  .pop-up-window {
+    width: 90%;
   }
 }/*# sourceMappingURL=style.css.map */
