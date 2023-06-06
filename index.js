@@ -108,17 +108,18 @@ function submitted() {
     document.getElementById('lnamee').value = "";
     document.getElementById('pnum').value = "";
     document.getElementById('addaras').value = "";
-
-
+    
+    
+    
     ContactList.push({
         firstname: fname, lastname: lname, Phonenumber: phnum,
         Address: adda, image: LatestImage
     });
-
+    
     localStorage.setItem('ContactList', JSON.stringify(ContactList));
-
+    
     poplhide();
-    // document.getElementById("contact-img-" + index).src = "";
+    document.getElementById("contact-img-" + index).src = "";
     showdata();
 }
 
@@ -277,7 +278,6 @@ function filterData() {
 
     // document.getElementById("all-card-parts").innerHTML = "";
 
-    // document.getElementById("checking").innerHTML = x;
 
     for (let index= 0; index < ContactList.length; index++) {
         const element = ContactList[index];
@@ -305,6 +305,5 @@ function filterData() {
     // showdata();
         
 }
-
 
 showdata();
