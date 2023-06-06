@@ -93,21 +93,21 @@ function submitted() {
     } else {
         ContactList = JSON.parse(localStorage.getItem("ContactList"));
     }
-    // console.log(reader.result);
-    // var html = '<div class="card" id="crd-'+ids+'"><ul class="itul" id="myUL">';
+    console.log(reader.result);
+    var html = '<div class="card" id="crd-'+ids+'"><ul class="itul" id="myUL">';
 
-    // html += '<li  class="for-pd"><img onclick="editdel(' + ContactList.length + ')" class="three-dot" src="./IMAGES/three-dot.svg"></li>';
+    html += '<li  class="for-pd"><img onclick="editdel(' + ContactList.length + ')" class="three-dot" src="./IMAGES/three-dot.svg"></li>';
 
-    // html += '<div class="edidel-div" id="edidel-div-' + ContactList.length + '"> <div class="div-del" onclick="onndelete()">DELETE</div> <div class="div-edit"  onclick="onnedit(' + ContactList.length + ')">EDIT</div></div>';
+    html += '<div class="edidel-div" id="edidel-div-' + ContactList.length + '"> <div class="div-del" onclick="onndelete()">DELETE</div> <div class="div-edit"  onclick="onnedit(' + ContactList.length + ')">EDIT</div></div>';
 
-    // html += '<li class="center-human"><img class="human" id="human"></li>';
-    // html += `<li class="for-pd for-mt">FirstName: ${fname}</li>`;
-    // html += `<li class="for-pd">LastName: ${lname}</li>`;
-    // html += `<li class="for-pd">Phone Number: ${phnum}</li>`;
-    // html += `<li class="for-pd">Address: ${adda}</li>`;
+    html += '<li class="center-human"><img class="human" id="human"></li>';
+    html += `<li class="for-pd for-mt">FirstName: ${fname}</li>`;
+    html += `<li class="for-pd">LastName: ${lname}</li>`;
+    html += `<li class="for-pd">Phone Number: ${phnum}</li>`;
+    html += `<li class="for-pd">Address: ${adda}</li>`;
 
-    // html += `</ul><div>`;
-    // document.getElementById("all-card-parts").innerHTML += html;
+    html += `</ul><div>`;
+    document.getElementById("all-card-parts").innerHTML += html;
     
     document.getElementById('fnamee').value = "";
     document.getElementById('lnamee').value = "";
