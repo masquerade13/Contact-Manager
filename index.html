@@ -58,8 +58,8 @@
                 <div class="head-of-middle">
                     <div class="search-bar">
                         <input id="myInput" class=" input-holder" type="text"
-                            placeholder="Search in Contacts.">
-                        <button type="button" class="search-btn">Search</button>
+                            placeholder="Search in Contacts." onkeyup="filterData()">
+                        <button type="button" class="search-btn" onclick="filterData()">Search</button>
                     </div>
                     <div class="new-contact-div"><button id="new-contact-btn" class="new-contact-btn" type="button"
                             onclick="popdisplay()">Add Contact</button></div>
@@ -70,6 +70,8 @@
                 </div>
             </div>
         </div>
+
+        <div id="checking"></div>
 
         <script src="index.js"></script>
 </body>

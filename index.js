@@ -34,15 +34,14 @@ document.getElementById('profile-input').addEventListener('change', (e) => {
     };
 });
 
+var ids = 0;    
 function submitted() {
-
-
     var fname = document.getElementById('fnamee').value;
     var lname = document.getElementById('lnamee').value;
     var phnum = document.getElementById('pnum').value;
     var adda = document.getElementById('addaras').value;
 
-    if (fname.length == "" && lname.length == "" && phnum.length == ""  && adda.length == "") {
+    if (fname.length == "" && lname.length == "" && phnum.length == "" && adda.length == "") {
         alert("Please Fill all the fields.");
         return;
     }
@@ -90,9 +89,7 @@ function submitted() {
         ContactList = JSON.parse(localStorage.getItem("ContactList"));
     }
     console.log(reader.result);
-
-
-    let html = `<div class="card"><ul class="itul" id="myUL">`;
+    var html = '<div class="card" id="crd-'+ids+'"><ul class="itul" id="myUL">';
 
     html += '<li  class="for-pd"><img onclick="editdel(' + ContactList.length + ')" class="three-dot" src="./IMAGES/three-dot.svg"></li>';
 
@@ -121,7 +118,7 @@ function submitted() {
     localStorage.setItem('ContactList', JSON.stringify(ContactList));
 
     poplhide();
-    document.getElementById("contact-img-" + index).src = "";
+    // document.getElementById("contact-img-" + index).src = "";
     showdata();
 }
 
@@ -135,11 +132,13 @@ function showdata() {
         ContactList = JSON.parse(localStorage.getItem("ContactList"));
     }
 
+    var ids = 0; 
     document.getElementById("all-card-parts").innerHTML = "";
     for (let index = 0; index < ContactList.length; index++) {
 
         const element = ContactList[index];
-        let html = `<div class="card"><ul class="itul" id="myUL">`;
+        let html = '<div class="card" id="crd-'+ids+'"><ul class="itul" id="myUL">';
+        ids = ids + 1;
 
         html += '<li class="for-pd"><img onclick="editdel(' + index + ')" class="three-dot" src="./IMAGES/three-dot.svg"></li>';
 
@@ -263,6 +262,48 @@ function update() {
     showdata();
     document.getElementById("Add-contact-btn").style.display = "block";
     document.getElementById("edit-contact-btn").style.display = "none";
+}
+
+
+function filterData() {
+    var x = document.getElementById("myInput").value;
+
+    let ContactList;
+    if (localStorage.getItem("ContactList") == null) {
+        ContactList = [];
+    } else {
+        ContactList = JSON.parse(localStorage.getItem("ContactList"));
+    }
+
+    // document.getElementById("all-card-parts").innerHTML = "";
+
+    // document.getElementById("checking").innerHTML = x;
+
+    for (let index= 0; index < ContactList.length; index++) {
+        const element = ContactList[index];
+        var per_first_name = element.firstname.toLowerCase();
+        var per_last_name = element.lastname.toLowerCase();
+        var per_Ph_num = element.Phonenumber.toLowerCase();
+        var per_Address = element.Address.toLowerCase();
+        x = x.toLowerCase()
+        if (x == "") {
+            showdata();
+        }
+
+        else{
+            if ((per_first_name.includes(x))  || (per_last_name.includes(x)) || (per_Ph_num.includes(x)) || (per_Address.includes(x))) {
+            console.log(per_Address);
+                document.getElementById('crd-'+index+'').style.display  = "flex";
+            } 
+            else{
+                document.getElementById('crd-'+index+'').style.display  = "none";  
+            }
+        }
+
+    }
+
+    // showdata();
+        
 }
 
 
