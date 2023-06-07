@@ -20,14 +20,17 @@ function popdisplay() {
 }
 
 function poplhide() {
-    pophide.style.display = 'none';
-    overlay.style.opacity = '1';
-    document.body.style.backgroundColor = 'rgb(4, 19, 26)';
+
     document.getElementById('fnamee').value = "";
     document.getElementById('lnamee').value = "";
     document.getElementById('pnum').value = "";
     document.getElementById('addaras').value = "";
-    document.getElementById("contact-img-" + index).src = "#";
+    document.getElementById("profile-input").src = "";
+    document.getElementById("profile-input").value = "";
+
+    pophide.style.display = 'none';
+    overlay.style.opacity = '1';
+    document.body.style.backgroundColor = 'rgb(4, 19, 26)';
 }
 
 const reader = new FileReader();
@@ -93,7 +96,7 @@ function submitted() {
     } else {
         ContactList = JSON.parse(localStorage.getItem("ContactList"));
     }
-    console.log(reader.result);
+    // console.log(reader.result);
     var html = '<div class="card" id="crd-'+ids+'"><ul class="itul" id="myUL">';
 
     html += '<li  class="for-pd"><img onclick="editdel(' + ContactList.length + ')" class="three-dot" src="./IMAGES/three-dot.svg"></li>';
@@ -105,15 +108,16 @@ function submitted() {
     html += `<li class="for-pd">LastName: ${lname}</li>`;
     html += `<li class="for-pd">Phone Number: ${phnum}</li>`;
     html += `<li class="for-pd">Address: ${adda}</li>`;
-
+    
     html += `</ul><div>`;
     document.getElementById("all-card-parts").innerHTML += html;
     
-    document.getElementById('fnamee').value = "";
-    document.getElementById('lnamee').value = "";
-    document.getElementById('pnum').value = "";
-    document.getElementById('addaras').value = "";
-    
+    // document.getElementById('fnamee').value = "";
+    // document.getElementById('lnamee').value = "";
+    // document.getElementById('pnum').value = "";
+    // document.getElementById('addaras').value = "";
+
+   
     
     ContactList.push({
         firstname: fname, lastname: lname, Phonenumber: phnum,
@@ -124,8 +128,20 @@ function submitted() {
     localStorage.setItem('ContactList', JSON.stringify(ContactList));
     
     poplhide();
-    // document.getElementById("contact-img-" + index).src = "";
     showdata();
+    // document.getElementById('fnamee').value = "";
+    // document.getElementById('lnamee').value = "";
+    // document.getElementById('pnum').value = "";
+    // document.getElementById('addaras').value = "";
+    // document.getElementById("profile-input").src = "";
+    // document.getElementById("profile-input").value = "";
+    // if (element.image == "") {
+    //     document.getElementById("contact-img-" + index).src = './IMAGES/human.png';
+    // }
+    // else {
+    //     document.getElementById("contact-img-" + index).src = element.image;
+    // }
+    // document.getElementById("contact-img-" + index).src = "";
 }
 
 
@@ -164,6 +180,7 @@ function showdata() {
             document.getElementById("contact-img-" + index).src = element.image;
         }
     }
+    document.getElementById("profile-input").src = "";
 }
 
 
@@ -195,7 +212,8 @@ function onnedit(index) {
     document.getElementById('fnamee').value = element.firstname;
     document.getElementById('lnamee').value = element.lastname;
     document.getElementById('pnum').value = element.Phonenumber;
-    document.getElementById("contact-img-" + index).src = element.image;
+    document.getElementById("profile-input").src = element.image;
+    // document.getElementById("profile-input").value = element.image;
     document.getElementById('addaras').value = element.Address;
 
     document.getElementById("Add-contact-btn").style.display = "none";
