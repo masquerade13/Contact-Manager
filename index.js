@@ -42,106 +42,80 @@ document.getElementById('profile-input').addEventListener('change', (e) => {
     };
 });
 
-var ids = 0;    
+var ids = 0;
 function submitted() {
     var fname = document.getElementById('fnamee').value;
     var lname = document.getElementById('lnamee').value;
     var phnum = document.getElementById('pnum').value;
     var adda = document.getElementById('addaras').value;
+    var mailformat = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
-    if (fname.length == "" && lname.length == "" && phnum.length == "" && adda.length == "") {
-        alert("Please Fill all the fields.");
-        return;
+    var flag = true;
+    if (fname.length <= 2) {
+        document.getElementById("div1").innerHTML = "Name cannot be less then 2 characters";
+        flag = false;
     }
-    if (fname.length <= 2 && fname.length > 0) {
-        alert("First Name Cannot Less than 2 characters.");
-        return;
+    else {
+        document.getElementById("div1").innerHTML = "";
     }
-
-    else if (fname.length == "") {
-        alert("First Name Cannot be Empty.");
-        return;
+    if (lname.length <= 2) {
+        document.getElementById("divl").innerHTML = "Last Name cannot be less then 2 characters";
+        flag = false;
     }
-
-    if (lname.length <= 2 && lname.length > 0) {
-        alert("Last Name Cannot Less than 2 characters.");
-        return;
+    else {
+        document.getElementById("divl").innerHTML = "";
     }
-    else if (lname.length == "") {
-        alert("Last Name Cannot be Empty.");
-        return;
-    }
-
     if (phnum.length != 10) {
-        alert("Phone Number Must be of 10 Digits.");
-        return;
+        document.getElementById("contact-num").innerHTML = "Phone Number Must be of 10 Digits.";
+        flag = false;
     }
-    else if (phnum.length == "") {
-        alert("Phone Number Cannot be Empty.");
-        return;
+    else {
+        document.getElementById("contact-num").innerHTML = "";
     }
-
-    if (adda.length <= 2 && adda.length > 0) {
-        alert("Address Cannot Less than 2 characters.");
-        return;
+    if (adda.match(mailformat)) {
+        document.getElementById("div2").innerHTML = "";
     }
-    else if (adda.length == "") {
-        alert("Address Cannot be Empty.");
-        return;
+    else {
+        document.getElementById("div2").innerHTML = "Enter the correct email address";
+        flag = false;
     }
 
-    let ContactList;
-    if (localStorage.getItem("ContactList") == null) {
-        ContactList = [];
-    } else {
-        ContactList = JSON.parse(localStorage.getItem("ContactList"));
+    if (flag) {
+
+
+        let ContactList;
+        if (localStorage.getItem("ContactList") == null) {
+            ContactList = [];
+        } else {
+            ContactList = JSON.parse(localStorage.getItem("ContactList"));
+        }
+        // console.log(reader.result);
+        var html = '<div class="card" id="crd-' + ids + '"><ul class="itul" id="myUL">';
+
+        html += '<li  class="for-pd"><img onclick="editdel(' + ContactList.length + ')" class="three-dot" src="./IMAGES/three-dot.svg"></li>';
+
+        html += '<div class="edidel-div" id="edidel-div-' + ContactList.length + '"> <div class="div-del" onclick="onndelete()">DELETE</div> <div class="div-edit"  onclick="onnedit(' + ContactList.length + ')">EDIT</div></div>';
+
+        html += '<li class="center-human"><img class="human" id="human"></li>';
+        html += `<li class="for-pd for-mt">FirstName : ${fname}</li>`;
+        html += `<li class="for-pd">LastName : ${lname}</li>`;
+        html += `<li class="for-pd">Phone Number : ${phnum}</li>`;
+        html += `<li class="for-pd">Email : ${adda}</li>`;
+
+        html += `</ul><div>`;
+        document.getElementById("all-card-parts").innerHTML += html;
+
+        ContactList.push({
+            firstname: fname, lastname: lname, Phonenumber: phnum,
+            Address: adda, image: LatestImage
+        });
+
+
+        localStorage.setItem('ContactList', JSON.stringify(ContactList));
+
+        poplhide();
+        showdata();
     }
-    // console.log(reader.result);
-    var html = '<div class="card" id="crd-'+ids+'"><ul class="itul" id="myUL">';
-
-    html += '<li  class="for-pd"><img onclick="editdel(' + ContactList.length + ')" class="three-dot" src="./IMAGES/three-dot.svg"></li>';
-
-    html += '<div class="edidel-div" id="edidel-div-' + ContactList.length + '"> <div class="div-del" onclick="onndelete()">DELETE</div> <div class="div-edit"  onclick="onnedit(' + ContactList.length + ')">EDIT</div></div>';
-
-    html += '<li class="center-human"><img class="human" id="human"></li>';
-    html += `<li class="for-pd for-mt">FirstName: ${fname}</li>`;
-    html += `<li class="for-pd">LastName: ${lname}</li>`;
-    html += `<li class="for-pd">Phone Number: ${phnum}</li>`;
-    html += `<li class="for-pd">Address: ${adda}</li>`;
-    
-    html += `</ul><div>`;
-    document.getElementById("all-card-parts").innerHTML += html;
-    
-    // document.getElementById('fnamee').value = "";
-    // document.getElementById('lnamee').value = "";
-    // document.getElementById('pnum').value = "";
-    // document.getElementById('addaras').value = "";
-
-   
-    
-    ContactList.push({
-        firstname: fname, lastname: lname, Phonenumber: phnum,
-        Address: adda, image: LatestImage
-    });
-    
-    
-    localStorage.setItem('ContactList', JSON.stringify(ContactList));
-    
-    poplhide();
-    showdata();
-    // document.getElementById('fnamee').value = "";
-    // document.getElementById('lnamee').value = "";
-    // document.getElementById('pnum').value = "";
-    // document.getElementById('addaras').value = "";
-    // document.getElementById("profile-input").src = "";
-    // document.getElementById("profile-input").value = "";
-    // if (element.image == "") {
-    //     document.getElementById("contact-img-" + index).src = './IMAGES/human.png';
-    // }
-    // else {
-    //     document.getElementById("contact-img-" + index).src = element.image;
-    // }
-    // document.getElementById("contact-img-" + index).src = "";
 }
 
 
@@ -154,12 +128,12 @@ function showdata() {
         ContactList = JSON.parse(localStorage.getItem("ContactList"));
     }
 
-    var ids = 0; 
+    var ids = 0;
     document.getElementById("all-card-parts").innerHTML = "";
     for (let index = 0; index < ContactList.length; index++) {
 
         const element = ContactList[index];
-        let html = '<div class="card" id="crd-'+ids+'"><ul class="itul" id="myUL">';
+        let html = '<div class="card" id="crd-' + ids + '"><ul class="itul" id="myUL">';
         ids = ids + 1;
 
         html += '<li class="for-pd"><img onclick="editdel(' + index + ')" class="three-dot" src="./IMAGES/three-dot.svg"></li>';
@@ -167,9 +141,9 @@ function showdata() {
         html += '<li><div class="edidel-div" id="edidel-div-' + index + '"> <div class="div-del" onclick="onndelete(' + index + ')">DELETE</div> <div class="div-edit"  onclick="onnedit(' + index + ')">EDIT</div></div></li>';
         html += '<li class="center-human"><img class="human" id="contact-img-' + index + '" ></li>';
         html += `<li class="for-pd for-mt">FirstName: ${element.firstname}</li>`;
-        html += `<li class="for-pd">LastName: ${element.lastname}</li>`;
-        html += `<li class="for-pd">Phone Number: ${element.Phonenumber}</li>`;
-        html += `<li class="for-pd">Address: ${element.Address}</li>`;
+        html += `<li class="for-pd">LastName : ${element.lastname}</li>`;
+        html += `<li class="for-pd">Phone Number : ${element.Phonenumber}</li>`;
+        html += `<li class="for-pd">Email : ${element.Address}</li>`;
 
         html += `</ul><div>`;
         document.getElementById("all-card-parts").innerHTML += html;
@@ -213,9 +187,7 @@ function onnedit(index) {
     document.getElementById('lnamee').value = element.lastname;
     document.getElementById('pnum').value = element.Phonenumber;
     document.getElementById("profile-input").src = element.image;
-    // document.getElementById("profile-input").value = element.image;
     document.getElementById('addaras').value = element.Address;
-
     document.getElementById("Add-contact-btn").style.display = "none";
     document.getElementById("edit-contact-btn").style.display = "block";
 
@@ -237,57 +209,46 @@ function update() {
     element.lastname = document.getElementById('lnamee').value;
     element.Phonenumber = document.getElementById('pnum').value;
     element.Address = document.getElementById('addaras').value;
+    var mailformat = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
-    if (element.firstname.length <= 2 && fname.length > 0) {
-        alert("First Name Cannot Less than 2 characters...");
-        return;
+    var fla = true;
+    if (element.firstname.length <= 2) {
+        document.getElementById("div1").innerHTML = "Name cannot be less then 2 characters";
+        fla = false;
     }
-    else if (element.firstname.length == "") {
-        alert("First Name Cannot be Empty...");
-        return;
+    else {
+        document.getElementById("div1").innerHTML = "";
     }
-
-    if (element.lastname.length <= 2 && lname.length > 0) {
-        alert("Last Name Cannot Less than 2 characters...");
-        return;
+    if (element.lastname.length <= 2) {
+        document.getElementById("divl").innerHTML = "Last Name cannot be less then 2 characters";
+        fla = false;
     }
-    else if (element.lastname.length == "") {
-        alert("Last Name Cannot be Empty...");
-        return;
+    else {
+        document.getElementById("divl").innerHTML = "";
     }
-
     if (element.Phonenumber.length != 10) {
-        alert("Phone Number Must be of 10 Digits...");
-        return;
+        document.getElementById("contact-num").innerHTML = "Phone Number Must be of 10 Digits.";
+        fla = false;
     }
-    else if (element.Phonenumber.length == "") {
-        alert("Phone Number Cannot be Empty...");
-        return;
+    else {
+        document.getElementById("contact-num").innerHTML = "";
     }
-
-    if (element.Address.length <= 2 && element.Address.length > 0) {
-        alert("Address Cannot Less than 2 characters...");
-        return;
+    if (element.Address.match(mailformat)) {
+        document.getElementById("div2").innerHTML = "";
     }
-    else if (element.Address.length == "") {
-        alert("Address Cannot be Empty...");
-        return;
+    else {
+        document.getElementById("div2").innerHTML = "Enter the correct email address";
+        fla = false;
     }
 
-    if (element.image == "" && LatestImage == "") {
-        element.image = "";
+    if (fla) {
+        localStorage.setItem("ContactList", JSON.stringify(ContactList));
+        poplhide();
+        showdata();
+        document.getElementById("Add-contact-btn").style.display = "block";
+        document.getElementById("edit-contact-btn").style.display = "none";
     }
-    else if (LatestImage != "") {
-        element.image = LatestImage;
-    }
-
-    localStorage.setItem("ContactList", JSON.stringify(ContactList));
-    poplhide();
-    showdata();
-    document.getElementById("Add-contact-btn").style.display = "block";
-    document.getElementById("edit-contact-btn").style.display = "none";
 }
-
 
 function filterData() {
     var x = document.getElementById("myInput").value;
@@ -299,10 +260,7 @@ function filterData() {
         ContactList = JSON.parse(localStorage.getItem("ContactList"));
     }
 
-    // document.getElementById("all-card-parts").innerHTML = "";
-
-
-    for (let index= 0; index < ContactList.length; index++) {
+    for (let index = 0; index < ContactList.length; index++) {
         const element = ContactList[index];
         var per_first_name = element.firstname.toLowerCase();
         var per_last_name = element.lastname.toLowerCase();
@@ -313,20 +271,16 @@ function filterData() {
             showdata();
         }
 
-        else{
-            if ((per_first_name.includes(x))  || (per_last_name.includes(x)) || (per_Ph_num.includes(x)) || (per_Address.includes(x))) {
-            console.log(per_Address);
-                document.getElementById('crd-'+index+'').style.display  = "flex";
-            } 
-            else{
-                document.getElementById('crd-'+index+'').style.display  = "none";  
+        else {
+            if ((per_first_name.includes(x)) || (per_last_name.includes(x)) || (per_Ph_num.includes(x)) || (per_Address.includes(x))) {
+                console.log(per_Address);
+                document.getElementById('crd-' + index + '').style.display = "flex";
+            }
+            else {
+                document.getElementById('crd-' + index + '').style.display = "none";
             }
         }
-
     }
 
-    // showdata();
-        
 }
-
 showdata();
