@@ -97,9 +97,9 @@ function submitted() {
         html += '<div class="edidel-div" id="edidel-div-' + ContactList.length + '"> <div class="div-del" onclick="onndelete()">DELETE</div> <div class="div-edit"  onclick="onnedit(' + ContactList.length + ')">EDIT</div></div>';
 
         html += '<li class="center-human"><img class="human" id="human"></li>';
-        html += `<li class="for-pd for-mt">FirstName : ${fname}</li>`;
-        html += `<li class="for-pd">LastName : ${lname}</li>`;
-        html += `<li class="for-pd">Phone Number : ${phnum}</li>`;
+        html += `<li class="for-pd for-mt">First Name : ${fname}</li>`;
+        html += `<li class="for-pd">Last Name : ${lname}</li>`;
+        html += `<li class="for-pd">Phone : ${phnum}</li>`;
         html += `<li class="for-pd">Email : ${adda}</li>`;
 
         html += `</ul><div>`;
@@ -140,9 +140,9 @@ function showdata() {
 
         html += '<li><div class="edidel-div" id="edidel-div-' + index + '"> <div class="div-del" onclick="onndelete(' + index + ')">DELETE</div> <div class="div-edit"  onclick="onnedit(' + index + ')">EDIT</div></div></li>';
         html += '<li class="center-human"><img class="human" id="contact-img-' + index + '" ></li>';
-        html += `<li class="for-pd for-mt">FirstName: ${element.firstname}</li>`;
-        html += `<li class="for-pd">LastName : ${element.lastname}</li>`;
-        html += `<li class="for-pd">Phone Number : ${element.Phonenumber}</li>`;
+        html += `<li class="for-pd for-mt">First Name: ${element.firstname}</li>`;
+        html += `<li class="for-pd">Last Name : ${element.lastname}</li>`;
+        html += `<li class="for-pd">Phone : ${element.Phonenumber}</li>`;
         html += `<li class="for-pd">Email : ${element.Address}</li>`;
 
         html += `</ul><div>`;
@@ -198,7 +198,7 @@ function onnedit(index) {
 function update() {
     let ContactList;
     if (localStorage.getItem("ContactList") == null) {
-        ContactList = [];
+        ContactList = []; 
     } else {
         ContactList = JSON.parse(localStorage.getItem("ContactList"));
     }
@@ -281,6 +281,5 @@ function filterData() {
             }
         }
     }
-
 }
 showdata();
